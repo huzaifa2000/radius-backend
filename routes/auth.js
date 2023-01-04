@@ -119,22 +119,22 @@ router.post(
   }
 );
 
-//ROUTE 3:Get loggedin User details: POST "/api/auth/getuser". Login required
-// router.get(
-//   "/getuser",
-//   fetchUser,
+// ROUTE 3:Get loggedin User details: POST "/api/auth/getuser". Login required
+router.get(
+  "/getuser",
+  fetchUser,
 
-//   async (req, res) => {
-//     try {
-//       var userID = req.user.id;
-//       const user = await User.findById(userID).select("-password");
-//       res.send(user);
-//     } catch (error) {
-//       console.error(error.message);
-//       res.status(500).send("Internal Server Error");
-//     }
-//   }
-// );
+  async (req, res) => {
+    try {
+      var userID = req.user.id;
+      const user = await User.findById(userID).select("-password");
+      res.send(user);
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send("Internal Server Error");
+    }
+  }
+);
 
 router.get(
   "/getAllUsers",
